@@ -4,6 +4,7 @@ namespace App\DB;
 
 use Exception;
 use PDO;
+use PDOException;
 
 class Database{
     
@@ -14,14 +15,15 @@ class Database{
 
     /**
      * nome tabela a ser manipulada
+     * @var string
      */
     private $table;
 
     /**
      * Instanciaconexao do banco de dados
-     * @var string
+     * @var PDO
      */
-    private $conection;
+    private $connection;
     
     public function __construct($table=null)
     {
@@ -40,5 +42,40 @@ class Database{
         }catch(PDOException $e){
             die("Error".$e->getMessage());
         }
+    }
+    /**
+     * Metodo responsavel por executar as queries dentro do bd
+     * @param string $query
+     * @param array $params
+     * @return PDOStatement
+     */
+
+    public function execute($query,$params=[]){
+        try{
+            $stmt = $this->connection->prepare($query);
+            $stmt->execute($params);
+            return $stmt;
+        }catch(PDOException $e){
+            die("Erro".$e->getMessage());
+        }
+    }
+
+    /**
+     * Metodo responsavel por inserir dados no banco
+     * @param array $values [field=>value]
+     * @return integer
+     * @return integer ID inserido  
+     */
+
+    public function insert($values){
+
+        $fields = array_keys($values);
+        $binds = array_pad([],count($fields),'?'); //tamanho do array tem que ser do tamnho dos campos que é 4 
+        
+        $query =  'INSERT INTO '. $this->table.'('.implode(',',$fields).') VALUES ('.implode(',',$binds).')';
+        
+        $this->execute($query,array_values($values));
+
+        return $this->connection->lastInsertId(); //ultimo id inserido
     }
 }
