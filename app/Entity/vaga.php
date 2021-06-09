@@ -3,12 +3,12 @@
 namespace App\Entity;
 
 use App\DB\Database;
-use DateTime;
 
 class Vaga{
 
     /**
      * Identificador único da vaga
+     * @var integer
      */
     public $id;
     /**
@@ -19,6 +19,7 @@ class Vaga{
 
     /**
      * Descrição da Vaga
+     * @var string
      */
     public $descricao;
 
@@ -43,10 +44,15 @@ class Vaga{
         //inserir vaga no banco
         $objDatabase = new Database('vagas');
 
-        echo "<pre>"; print_r($objDatabase); echo "</pre>"; die();
-
+        $this->id = $objDatabase->insert([
+                'titulo' => $this->titulo,
+                'descricao' => $this->descricao,
+                'ativo' => $this->ativo,
+                'data' => $this->data,
+        ]);
         //atribuir id da vaga na instancia
 
         //retornar sucesso
+        return true;
     }
 }
