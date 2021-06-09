@@ -12,10 +12,11 @@ if(isset($_POST['titulo'],$_POST['descricao'],$_POST['ativo'])){
     $objVAga->ativo = $_POST['ativo'];
     $objVAga->cadastrar();
 
-   //echo "<pre>"; print_r($objVAga); echo "</pre>"; die();
+    header('location:index.php?status=success');
+    exit;
 }
 
 include __DIR__ . "./includes/header.php";
-include __DIR__ . "./includes/listagem.php";
+include __DIR__ . "./includes/formulario.php";
 include __DIR__ . "./includes/footer.php";
 
