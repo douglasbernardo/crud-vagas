@@ -2,17 +2,17 @@
 
 require __DIR__ . "./vendor/autoload.php";
 
-define('TITLE','Cadastrar Vaga');
+define('TITLE','Cadastrar vaga');
 use \App\Entity\Vaga;
 
 
 //validação do post
 if(isset($_POST['titulo'],$_POST['descricao'],$_POST['ativo'])){
-    $objVAga = new Vaga;
-    $objVAga->titulo = $_POST['titulo'];
-    $objVAga->descricao = $_POST['descricao'];
-    $objVAga->ativo = $_POST['ativo'];
-    $objVAga->cadastrar();
+    $objVaga = new Vaga;
+    $objVaga->titulo = $_POST['titulo'];
+    $objVaga->descricao = $_POST['descricao'];
+    $objVaga->ativo = $_POST['ativo'];
+    $objVaga->cadastrar();
 
     header('location:index.php?status=success');
     exit;

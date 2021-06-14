@@ -1,9 +1,7 @@
-
 <?php
 $resultados = '';
 foreach($vagas as $vaga){
     $resultados .= '<tr>
-                        <td>'.$vaga->id.'</td>
                         <td>'.$vaga->titulo.'</td>
                         <td>'.$vaga->descricao.'</td>
                         <td>'.($vaga->ativo == 's' ? 'Ativo' : 'Inativo').'</td>
@@ -30,7 +28,6 @@ foreach($vagas as $vaga){
         <table class="table bg-light mt-3">
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Título</th>
                     <th>Descrição</th>
                     <th>Status</th>

@@ -39,7 +39,8 @@ class Vaga{
      * Metodo responsavel por cadastrar uma nova vaga no banco
      * @var boolean
      */
-    public function cadastrar(){
+    public function cadastrar()
+    {
         $this->data = date('Y-m-d H:i:s');
 
         //inserir vaga no banco
@@ -60,13 +61,10 @@ class Vaga{
     /**
      * Metodo responsavel por obter as vagas do banco de dados
      */
-    public static function getVagas(
-        $where=null,
-        $order=null
-    )
+    public static function getVagas($where=null,$order=null,$limit=null)
     {
         return (new Database('vagas'))
-                                ->select($where,$order)
+                                ->select($where,$order,$limit)
                                 ->fetchAll(PDO::FETCH_CLASS,self::class);
     } 
 
@@ -75,9 +73,10 @@ class Vaga{
      * @param integer $id
      * @return Vaga
      */
-    public static function getVaga($id){
+    public static function getVaga($id)
+    {
         return (new Database('vagas'))
-                                ->select('id = '.$id)
+                                ->select(' id = '.$id)
                                 ->fetchObject(self::class);//instancia de classe vaga
     }
 }

@@ -31,7 +31,8 @@ class Database{
         $this->setConnection();
     }
 
-    private function setConnection(){
+    private function setConnection()
+    {
         try{
             $this->connection = new PDO(
             'mysql:host='
@@ -50,7 +51,8 @@ class Database{
      * @return PDOStatement
      */
 
-    public function execute($query,$params=[]){
+    public function execute($query,$params=[])
+    {
         try{
             $stmt = $this->connection->prepare($query);
             $stmt->execute($params);
@@ -67,7 +69,8 @@ class Database{
      * @return integer ID inserido  
      */
 
-    public function insert($values){
+    public function insert($values)
+    {
 
         $fields = array_keys($values);
         $binds = array_pad([],count($fields),'?'); //tamanho do array tem que ser do tamnho dos campos que é 4 
@@ -85,8 +88,14 @@ class Database{
      * @param string $order
      * @return PDOStatement
      */
-    public function select($where=null,$order=null,$limit=null,$fields=null){
-        $query = 'SELECT '.$fields.'FROM'.$this->table.' '.$where.' '.$order.' '.$limit;
+    public function select($where=null,$order=null,$limit=null,$fields="*")
+    {
+        
+        $where = strlen($where) ? "WHERE".$where:"";
+        $order = strlen($order) ? "ORDER".$order:"";
+        $limit = strlen($limit) ? "LIMIT".$limit:"";
+
+        $query = 'SELECT '.$fields.'FROM '. $this->table. '  ' . $where. '  '. $order.'  '. $limit;
 
         return $this->execute($query);
     }
