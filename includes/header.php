@@ -14,5 +14,5 @@
         <div class="container">
             <div class="junbotron bg-danger">
                 <h1>Vagas DEV</h1>
-                <p>Exemplo de crup com php oo</p>
+                <p>Crud para cadastro de vagas de empregos</p>
             </div>
