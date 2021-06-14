@@ -78,4 +78,16 @@ class Database{
 
         return $this->connection->lastInsertId(); //ultimo id inserido
     }
+
+    /**
+     * Metodo responsavel por fazer uma consulta no banco
+     * @param string $where
+     * @param string $order
+     * @return PDOStatement
+     */
+    public function select($where=null,$order=null,$limit=null,$fields=null){
+        $query = 'SELECT '.$fields.'FROM'.$this->table.' '.$where.' '.$order.' '.$limit;
+
+        return $this->execute($query);
+    }
 }
