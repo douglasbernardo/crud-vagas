@@ -3,6 +3,7 @@
 require __DIR__ . "./vendor/autoload.php";
 
 define('TITLE','Editar vaga');
+define('BUTTON','Editar');
 
 use \App\Entity\Vaga;
 
@@ -25,7 +26,7 @@ if(isset($_POST['titulo'],$_POST['descricao'],$_POST['ativo'])){
     $objVaga->titulo = $_POST['titulo'];
     $objVaga->descricao = $_POST['descricao'];
     $objVaga->ativo = $_POST['ativo'];
-   //$objVaga->atualizar();
+    $objVaga->atualizar();
 
     header('location:index.php?status=success');
     exit;
