@@ -3,6 +3,7 @@
 require __DIR__ . "./vendor/autoload.php";
 
 define('TITLE','Cadastrar vaga');
+define('BUTTON','Cadastrar');
 
 use \App\Entity\Vaga;
 
