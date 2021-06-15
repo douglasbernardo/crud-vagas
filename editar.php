@@ -12,20 +12,20 @@ if(!isset($_GET['id']) or !is_numeric($_GET['id'])){
     exit;
 }
 
-$obVaga = Vaga::getVaga($_GET['id']);
+$objVaga = Vaga::getVaga($_GET['id']); 
 
 //validação da vaga
-if(!$obVaga instanceof Vaga){
+if(!$objVaga instanceof Vaga){
     echo "erro";
     exit;
 }
 
 //validação do post
 if(isset($_POST['titulo'],$_POST['descricao'],$_POST['ativo'])){
-    $obVaga->titulo = $_POST['titulo'];
-    $obVaga->descricao = $_POST['descricao'];
-    $obVaga->ativo = $_POST['ativo'];
-   // $objVAga->atualizar();
+    $objVaga->titulo = $_POST['titulo'];
+    $objVaga->descricao = $_POST['descricao'];
+    $objVaga->ativo = $_POST['ativo'];
+   //$objVaga->atualizar();
 
     header('location:index.php?status=success');
     exit;
