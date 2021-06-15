@@ -34,7 +34,7 @@
             </div>
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-success mt-4">Cadastrar</button>
+            <button type="submit" class="btn btn-success mt-4"><?=BUTTON?></button>
         </div>
     </form>
 </main>
