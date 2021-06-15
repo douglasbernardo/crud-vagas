@@ -1,5 +1,5 @@
 
 # crud-vagas
 ## Adicionar e listar vagas de Emprego
-### Linguagens : HTML, PHP
+### Ferramentas : HTML, PHP , SQL , MYSQL
 
