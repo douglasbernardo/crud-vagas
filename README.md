@@ -1,5 +1,12 @@
 
 # crud-vagas
 ## Adicionar e listar vagas de Emprego
-### Ferramentas : HTML, PHP , SQL , MYSQL
+### Ferramentas 
+* PHP 
+* SQL
+* Javascript
+* HTML5
+* MySQL
+* Bootstrap 4.0
+
 
