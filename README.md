@@ -7,6 +7,6 @@
 * Javascript
 * HTML5
 * MySQL
-* Bootstrap 4.0
+* Bootstrap
 
 
