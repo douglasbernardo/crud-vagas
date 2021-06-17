@@ -1,11 +1,13 @@
 <?php
+
+date_default_timezone_set('America/Sao_Paulo');
 $resultados = '';
 foreach($vagas as $vaga){
     $resultados .= '<tr>
                         <td>'.$vaga->titulo.'</td>
                         <td>'.$vaga->descricao.'</td>
                         <td>'.($vaga->ativo == 's' ? 'Ativo' : 'Inativo').'</td>
-                        <td>'.date('d/m/Y à\s H:i:s',strtotime($vaga->data)).'</td>
+                        <td>'.date("d/m/Y",strtotime($vaga->data)).'</td>
                         <td>
                             <a href="editar.php?id='.$vaga->id.'">
                                 <button type="button" class="btn btn-primary">Editar</button>
