@@ -6,7 +6,7 @@ use \App\Entity\Vaga;
 
 //validação do id
 if(!isset($_GET['id']) or !is_numeric($_GET['id'])){
-   echo "ops";
+    header('location: index.php?status=error');
     exit;
 }
 
@@ -21,7 +21,7 @@ if(!$objVaga instanceof Vaga){
 //validação do post
 if(isset($_POST['excluir'])){
 
-    $objVaga->excluir($_GET['id']);
+    $objVaga->excluir();
 
     header('location:index.php?status=success');
     exit;
