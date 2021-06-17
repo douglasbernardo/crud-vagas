@@ -14,11 +14,18 @@ if(isset($_POST['titulo'],$_POST['descricao'],$_POST['ativo'])){
     $objVaga->titulo = $_POST['titulo'];
     $objVaga->descricao = $_POST['descricao'];
     $objVaga->ativo = $_POST['ativo'];
-    $objVaga->cadastrar();
 
-    header('location:index.php?status=success');
-    exit;
+    if($_POST['titulo'] OR $_POST['descricao'] == ""){
+        echo "<script>
+                alert('Preencha os dados Corretamente')
+            </script>";
+    }else{
+        $objVaga->cadastrar();
+        header("location:index.php?status=success");
+        return;
+    }
 }
+
 
 include __DIR__ . "./includes/header.php";
 include __DIR__ . "./includes/formulario.php";
