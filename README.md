@@ -8,5 +8,6 @@
 * HTML5
 * MySQL
 * Bootstrap
+* Composer
 
 
