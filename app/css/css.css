@@ -1,0 +1,10 @@
+.display-4{
+    margin:10px;
+    justify-content: center;
+    text-align: center;
+  }
+  .lead{
+    margin-left: 10px;
+    margin-top: 10px;
+    text-align: center;
+  }
