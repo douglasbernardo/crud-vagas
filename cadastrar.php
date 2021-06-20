@@ -15,19 +15,32 @@ if(isset($_POST['titulo'],$_POST['descricao'],$_POST['ativo'])){
     $objVaga->descricao = $_POST['descricao'];
     $objVaga->ativo = $_POST['ativo'];
 
-    if($_POST['titulo'] OR $_POST['descricao'] == ""){
-        echo "<script>
-                alert('Preencha os dados Corretamente')
-            </script>";
-    }else{
+
+    if(validar($_POST['titulo'],$_POST['descricao']) == true){
         $objVaga->cadastrar();
         header("location:index.php?status=success");
-        return;
     }
+}
+
+function validar(string $titulo, string $descricao) : bool
+{  
+    if($titulo && $descricao == ""){
+        echo "Preencha os dados corretamente";
+        return false;
+    }
+    if($titulo == ""){
+        echo "Preencha o titulo corretamente";
+        return false;
+    }
+    if($descricao == ""){
+        echo "Preencha a descrição corretamente";
+        return false;
+    }
+
+    return true;
 }
 
 
 include __DIR__ . "./includes/header.php";
 include __DIR__ . "./includes/formulario.php";
 include __DIR__ . "./includes/footer.php";
-
