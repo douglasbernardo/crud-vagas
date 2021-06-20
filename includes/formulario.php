@@ -12,11 +12,11 @@
     <form method="post">
         <div class="form-group">
             <label for="titulo">Titulo</label>
-            <input type="text" class="form-control" name="titulo" value="<?=$objVaga->titulo ?>">
+            <input type="text" class="form-control" id="titulo" name="titulo" value="<?=$objVaga->titulo ?>">
         </div>
         <div class="form-group">
             <label for="descricao">Descrição</label>
-            <textarea type="text" class="form-control" name="descricao" rows="6"><?=$objVaga->descricao ?></textarea>
+            <textarea type="text" class="form-control" id="descricao" name="descricao" rows="6"><?=$objVaga->descricao ?></textarea>
         </div>
         <div class="form-group">
             <label for="status">Status</label>
@@ -34,7 +34,7 @@
             </div>
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-success mt-4"><?=BUTTON?></button>
+            <button type="submit" class="btn btn-success mt-4" onclick="validar()"><?=BUTTON?></button>
         </div>
     </form>
 </main>
