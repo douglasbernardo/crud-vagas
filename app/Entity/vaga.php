@@ -5,11 +5,14 @@ namespace App\Entity;
 use App\DB\Database;
 use \PDO;
 
+
 class Vaga{
 
     /**
      * Identificador único da vaga
+
      * @var integer
+
      */
     public $id;
     /**
@@ -21,6 +24,7 @@ class Vaga{
     /**
      * Descrição da Vaga
      * @var string
+
      */
     public $descricao;
 
