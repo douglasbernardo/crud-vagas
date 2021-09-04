@@ -7,11 +7,11 @@ use PDO;
 use PDOException;
 
 class Database{
-    
+
     const HOST ='localhost';
-    const NAME ='dev_vagas';
+    const NAME ='wdev_vagas';
     const USER = 'root';
-    const PASSWORD = 'douglas@melo';
+    const PASSWORD = '';
 
     /**
      * nome tabela a ser manipulada
